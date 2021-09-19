@@ -2,7 +2,6 @@
     This is a Translator that translate from English to French and vice-versa
 """
 import os
-import json
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from dotenv import load_dotenv
@@ -32,7 +31,7 @@ def english_to_french(english_text):
         print(english_text + "--->" + translation.get('translations')[0].get('translation'))
         french_text = translation.get('translations')[0].get('translation')
         return french_text
-    return "The provided input is null"
+    return None
 
 def french_to_english(french_text):
     """
@@ -45,4 +44,4 @@ def french_to_english(french_text):
         print(french_text + "--->" + translation.get('translations')[0].get('translation'))
         english_text = translation.get('translations')[0].get('translation')
         return english_text
-    return "The provided input is null"
+    return None
