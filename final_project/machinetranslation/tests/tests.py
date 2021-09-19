@@ -3,11 +3,12 @@ import sys
 sys.path.append("..")
 
 from translator import english_to_french, french_to_english
+
 class TestEnglishTranslator(unittest.TestCase): 
     def testEnglish2FrenchTranslator(self):
         self.assertEqual(english_to_french(None), None)
         self.assertEqual(english_to_french('Hello'), 'Bonjour') 
-        self.assertEqual(english_to_french('Kitchen'), 'Cuisine') 
+        self.assertNotEqual(english_to_french('Kitchen'), 'Porte') 
         self.assertEqual(english_to_french('House'), 'Maison') 
 
 class TestFrenchTranslator(unittest.TestCase): 
@@ -15,6 +16,6 @@ class TestFrenchTranslator(unittest.TestCase):
         self.assertEqual(french_to_english(None), None)      
         self.assertEqual(french_to_english('Bonjour'), 'Hello') 
         self.assertEqual(french_to_english('Cuisine'), 'Kitchen') 
-        self.assertEqual(french_to_english('Maison'), 'House')  
+        self.assertNotEqual(french_to_english('Maison'), 'Teacher')  
 
 unittest.main()
